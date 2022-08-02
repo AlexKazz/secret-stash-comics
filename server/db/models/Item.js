@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const Sequelize = require("sequelize");
+const db = require("../db");
 
-const Item = db.define('item', {
+const Item = db.define("item", {
   name: {
     type: Sequelize.STRING,
     unique: true,
@@ -9,9 +9,11 @@ const Item = db.define('item', {
   },
   imageUrl: {
     type: Sequelize.TEXT,
+    defaultValue:
+      "https://i.annihil.us/u/prod/marvel/i/mg/e/80/62dab23aaca94/portrait_uncanny.jpg",
   },
   price: {
-    type: Sequelize.DECIMAL(2, 2),
+    type: Sequelize.DECIMAL(10, 2),
   },
 });
 
