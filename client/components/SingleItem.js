@@ -1,14 +1,20 @@
-import React from "react";
-import { singleItem } from "../redux/singleItem";
+import React from 'react';
+import { singleItem } from '../redux/singleItem';
+import { connect } from 'react-redux';
 
-class singleItem extends React.Component {
+class SingleItem extends React.Component {
+  async componentDidMount() {
+    await this.props.singleItem(this.props.match.params.id);
+  }
+
   render() {
-    console.log(this);
+    let item = this.props.item || {};
+
     return (
       <div>
-        <div>{this.props.items.name}</div>
-        <div>{this.props.items.imageUrl}</div>
-        <div>{this.props.items.price}</div>
+        <div>{item.name}</div>
+        <div>{item.imageUrl}</div>
+        <div>{item.price}</div>
         <button onClick>Add To Cart</button>
       </div>
     );
@@ -24,4 +30,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(singleItem);
+export default connect(mapState, mapDispatch)(SingleItem);

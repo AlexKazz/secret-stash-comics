@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchItems, deleteItem } from '../store/items';
+import { fetchItems, deleteItem } from '../redux/items';
 import Item from './Item';
 
 export class AllItems extends React.Component {

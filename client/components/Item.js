@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const item = ({ item }) => {
+const Item = ({ item }) => {
   return (
     <div className='item'>
       <Link to={`/items/${item.id}`}>
