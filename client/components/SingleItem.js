@@ -1,7 +1,9 @@
 import React from 'react';
-import { singleItem } from '../redux/singleItem';
+import { singleItem } from '../store/singleItem';
 import { connect } from 'react-redux';
-
+function dogs(){
+  return
+}
 class SingleItem extends React.Component {
   async componentDidMount() {
     await this.props.singleItem(this.props.match.params.id);
@@ -12,10 +14,10 @@ class SingleItem extends React.Component {
 
     return (
       <div>
+        <img src={item.imageUrl}/>
         <div>{item.name}</div>
-        <div>{item.imageUrl}</div>
         <div>{item.price}</div>
-        <button onClick>Add To Cart</button>
+        <button onClick={dogs()}>Add To Cart</button>
       </div>
     );
   }

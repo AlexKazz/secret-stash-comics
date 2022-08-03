@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
   return (
-    <div className='item'>
-      <Link to={`/items/${item.id}`}>
-        <h2>{item.name}</h2>
-      </Link>
-      <img src={item.imageUrl} />
+    <div key={item.id}>
+        <img src={item.imageUrl}/>
+        <div>{item.name}</div>
+        <div>{item.price}</div>
+        <button >Add To Cart</button>
     </div>
   );
 };
