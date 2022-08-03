@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {authenticate} from '../store'
+import AllItems from './AllItems'
 
 /**
  * COMPONENT
@@ -9,6 +10,7 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
+  <div>
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
@@ -29,6 +31,8 @@ const AuthForm = props => {
         {error && error.response && <div> {error.response.data} </div>}
       </form>
     </div>
+    <AllItems />
+  </div>
   )
 }
 
