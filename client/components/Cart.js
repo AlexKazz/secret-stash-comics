@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import {
   getCartThunk,
   //   checkoutThunk,
-  //   updateCartThunk,
+     updateCartThunk,
   //   removeProductThunk,
 } from "../store/cart";
 
@@ -40,9 +40,9 @@ class Cart extends Component {
                   <button
                     id="less-quantity-button"
                     type="button"
-                    // onClick={() =>
-                    //   updateCart(this.props.user, item, -1)
-                    // }
+                    onClick={() =>
+                      this.props.updateCart(this.props.user, item, -1)
+                    }
                   >
                     -
                   </button>
@@ -50,9 +50,9 @@ class Cart extends Component {
                 <button
                   id="more-quantity-button"
                   type="button"
-                  //   onClick={() =>
-                  //     this.props.updateCart(this.props.user, item, 1)
-                  //   }
+                     onClick={() =>
+                       this.props.updateCart(this.props.user, item, 1)
+                     }
                 >
                   +
                 </button>{" "}
@@ -100,8 +100,8 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
   getCart: (userId) => dispatch(getCartThunk(userId)),
   //   checkoutThunk: (userId) => dispatch(checkoutThunk(userId)),
-  //   updateCart: (user, product, quantityChange) =>
-  //     dispatch(updateCartThunk(user, product, quantityChange)),
+     updateCart: (user, item, quantityChange) =>
+       dispatch(updateCartThunk(user, item, quantityChange)),
   //   removeProduct: (user, product) => dispatch(removeProductThunk(user, product)),
 });
 

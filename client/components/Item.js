@@ -7,7 +7,6 @@ const Item = ({ item }) => {
         <img src={item.imageUrl}/>
         <div>{item.name}</div>
         <div>{item.price}</div>
-        <button >Add To Cart</button>
     </div>
   );
 };
