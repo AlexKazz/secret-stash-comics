@@ -1,12 +1,22 @@
 import React from 'react';
 import { singleItem } from '../store/singleItem';
 import { connect } from 'react-redux';
+import { updateCartThunk } from '../store/cart';
 function dogs(){
   return
 }
 class SingleItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.addToCart = this.addToCart.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
+  }
   async componentDidMount() {
     await this.props.singleItem(this.props.match.params.id);
+    
+  }
+  async addToCart(item) {
+    await this.props.updateCart(this.props.user, item, 1);
   }
 
   render() {
@@ -17,18 +27,20 @@ class SingleItem extends React.Component {
         <img src={item.imageUrl}/>
         <div>{item.name}</div>
         <div>{item.price}</div>
-        <button onClick={dogs()}>Add To Cart</button>
+        <button onClick={() => this.addToCart(item)}>Add To Cart</button>
       </div>
     );
   }
 }
 
 const mapState = (reduxState) => {
-  return { item: reduxState.singleItem };
+  return { item: reduxState.singleItem, user: reduxState.auth };
 };
 const mapDispatch = (dispatch) => {
   return {
     singleItem: (id) => dispatch(singleItem(id)),
+    updateCart: (user, item, quantityChange) =>
+       dispatch(updateCartThunk(user, item, quantityChange)),
   };
 };
 
