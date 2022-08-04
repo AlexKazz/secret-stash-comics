@@ -7,12 +7,12 @@ const TOKEN = 'token'
  * ACTION TYPES
  */
 const SET_AUTH = 'SET_AUTH'
-
+const SET_FALSE = 'SET_FALSE'
 /**
  * ACTION CREATORS
  */
 const setAuth = auth => ({type: SET_AUTH, auth})
-
+const setFalse = () => ({type: SET_FALSE})
 /**
  * THUNK CREATORS
  */
@@ -25,6 +25,8 @@ export const me = () => async dispatch => {
       }
     })
     return dispatch(setAuth(res.data))
+  } else {
+    return dispatch(setFalse())
   }
 }
 
@@ -54,6 +56,8 @@ export default function(state = {}, action) {
   switch (action.type) {
     case SET_AUTH:
       return action.auth
+      case SET_FALSE:
+      return {id: false}
     default:
       return state
   }

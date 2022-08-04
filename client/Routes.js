@@ -17,8 +17,12 @@ class Routes extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-
-    return (
+    console.log(this.props)
+    if(this.props.isLoggedIn === undefined){
+      return (<div>Loading</div>)
+    } else {
+      return (
+    
       <div>
         {isLoggedIn ? (
           <Switch>
@@ -39,6 +43,7 @@ class Routes extends Component {
         )}
       </div>
     );
+    }
   }
 }
 
@@ -47,9 +52,8 @@ class Routes extends Component {
  */
 const mapState = (state) => {
   return {
-    // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
-    // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
-    isLoggedIn: !!state.auth.id,
+    // Being 'logged in' is undefined if unchecked, false if not logged in, and the id of the current user logged in if logged in
+    isLoggedIn: state.auth.id, 
   };
 };
 

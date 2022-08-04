@@ -72,7 +72,17 @@ async function seed() {
       User.create({ username: "cody", password: "123" }),
       User.create({ username: "murphy", password: "123" }),
     ]);
-    
+    let user1 = await User.findByPk(1, { include: [{ model: Order }] });
+
+    const order1 = await Order.create();
+    await order1.setUser(user1);
+
+    const energyDrink1 = await Item.findByPk(1);
+    const energyDrink2 = await Item.findByPk(2);
+
+    await order1.addItem(energyDrink1);
+    await order1.addItem(energyDrink2);
+    user1 = await User.findByPk(1, { include: { model: Order } });
 
     console.log(`seeded ${users.length} users`);
     console.log(`seeded successfully`);

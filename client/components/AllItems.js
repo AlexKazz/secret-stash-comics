@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchItems } from '../store/items';
-import { updateCartThunk } from '../store/cart';
+import { sendItemThunk } from '../store/cart';
 import Item from './Item';
 
 export class AllItems extends React.Component {
@@ -15,8 +15,8 @@ export class AllItems extends React.Component {
     await this.props.fetchItems();
   }
   
-  async addToCart(item) {
-    
+  async addToCart(user, item, quantity) {
+    await this.props.addToCart(user, item, quantity)
   }
 
   render() {
@@ -33,7 +33,7 @@ export class AllItems extends React.Component {
                 <button
                   type="button"
                   id="add-product-button"
-                  onClick={() => this.addToCart(item)}
+                  onClick={() => this.addToCart(this.props.user, item, 1)}
                 >
                   Add To Cart
                 </button>
@@ -55,6 +55,7 @@ const mapState = (reduxState) => ({
 
 const mapDispatch = (dispatch) => ({
   fetchItems: () => dispatch(fetchItems()),
+  addToCart: (user, item, quantity) => dispatch(sendItemThunk(user, item, quantity)),
 });
 
 export default connect(mapState, mapDispatch)(AllItems);
