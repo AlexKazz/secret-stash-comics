@@ -16,7 +16,7 @@ class SingleItem extends React.Component {
     
   }
   async addToCart(item) {
-    await this.props.updateCart(this.props.user, item, 1);
+    
   }
 
   render() {
@@ -39,8 +39,7 @@ const mapState = (reduxState) => {
 const mapDispatch = (dispatch) => {
   return {
     singleItem: (id) => dispatch(singleItem(id)),
-    updateCart: (user, item, quantityChange) =>
-       dispatch(updateCartThunk(user, item, quantityChange)),
+    
   };
 };
 

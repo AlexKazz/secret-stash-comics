@@ -16,7 +16,7 @@ export class AllItems extends React.Component {
   }
   
   async addToCart(item) {
-    await this.props.updateCart(this.props.user, item, 1);
+    
   }
 
   render() {
@@ -48,15 +48,13 @@ export class AllItems extends React.Component {
 }
 
 const mapState = (reduxState) => ({
-  isLoggedIn: !!reduxState.auth.id,
+  // isLoggedIn: !!reduxState.auth.id,
   items: reduxState.items,
   user: reduxState.auth,
 });
 
 const mapDispatch = (dispatch) => ({
   fetchItems: () => dispatch(fetchItems()),
-  updateCart: (user, item, quantityChange) =>
-       dispatch(updateCartThunk(user, item, quantityChange)),
 });
 
 export default connect(mapState, mapDispatch)(AllItems);
