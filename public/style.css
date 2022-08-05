@@ -13,9 +13,50 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+
 }
 
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.StoreName {
+  background-image: url("Marvel.gif");
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-color: #cccccc;
+  display: flex;
+  justify-content: space-around;
+  height: 85px;
+  padding: 30px 10px;
+
+}
+nav {
+  align-items: center;
+  background-color: #323131;
+  color: #f1e4e7;
+  display: flex;
+  justify-content: space-around;
+  height: 20px;
+  padding: 30px 10px;
+  align-items: baseline;
+  font-size: 20px;
+}
+.navText {
+  color: whitesmoke;
+}
+.NavList {
+  list-style-type: none;
+}
+.NavList li:hover {
+  color: peachpuff
+}
+.NavList .ListItem {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+.NavBar {
+  flex-direction: column;
 }

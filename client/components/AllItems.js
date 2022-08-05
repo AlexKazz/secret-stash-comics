@@ -25,7 +25,7 @@ export class AllItems extends React.Component {
       <div style={{display: 'flex', padding: '20px'}}>
         
         {this.props.items.map((item) => ( // items should be item
-            <div>
+            <div style={{ padding: '20px'}}>
             <Item item={item} />
             
            
