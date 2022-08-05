@@ -45,7 +45,7 @@ router.put("/:id", async (req, res, next) => {
       const itemList = await order.getItems();
       const itemInOrder = itemList.filter((item) => item.id === itemId).length;
 
-      const carp = await Cart.findAll({
+      const cart = await Cart.findAll({
         where: {
           orderId: order.id,
           itemId: itemId,
@@ -54,7 +54,7 @@ router.put("/:id", async (req, res, next) => {
       if (quantity === 0) {
         await order.removeItem(itemId);
       } else {
-        let newQty = itemInOrder ? carp[0].quantity + quantity : quantity;
+        let newQty = itemInOrder ? cart[0].quantity + quantity : quantity;
         await order.addItem(itemId, { through: { quantity: newQty } });
       }
     }
