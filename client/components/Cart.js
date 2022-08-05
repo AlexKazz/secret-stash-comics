@@ -1,56 +1,65 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import {
-  getCartThunk,
-} from "../store/cart";
+import { getCartThunk, removeItems } from "../store/cart";
+
+// import itemsReducer, { deleteItems } from "../store/items";
 
 class Cart extends Component {
   constructor() {
     super();
     this.state = {
       cart: {},
-      items: []
+      items: [],
     };
     this.getCart = this.getCart.bind(this);
+    this.removeItems = this.removeItems.bind(this);
   }
   async componentDidMount() {
-    console.log(this.props.user, 'dog')
+    console.log(this.props.user, "dog");
     await this.props.getCart(this.props.user.id);
   }
-//   async componentDidUpdate(prevProps) {
-//   // Typical usage (don't forget to compare props):
-//   if (this.props.user !== prevProps.user) {
-//       await this.props.getCart(this.props.user.id);
-//       this.setState()
-//       console.log(this.props)
-//   }
-// }
+  //   async componentDidUpdate(prevProps) {
+  //   // Typical usage (don't forget to compare props):
+  //   if (this.props.user !== prevProps.user) {
+  //       await this.props.getCart(this.props.user.id);
+  //       this.setState()
+  //       console.log(this.props)
+  //   }
+  // }
+
   async getCart() {
     console.log(this.props.user);
-        await this.props.getCart(this.props.user.id);
-        
+    await this.props.getCart(this.props.user.id);
   }
-
+  async removeItems(user, item, quantity) {
+    await this.props.removeItems(user, item, quantity);
+    this.props.history.push("/deleted");
+  }
   render() {
-    let count = 0
+    let count = 0;
     let cart = this.props.cart || {};
-    let items = cart.items || []
+    let items = cart.items || [];
     // if(this.props.user.id){
     //     this.getCart()
-        
+
     // }
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div>
         {items.map((item) => {
-            return(
+          return (
             <div key={item.id}>
-                <img src={item.imageUrl}/>
-                <div>{item.name}</div>
-                <div>{item.price}</div>
+              <img src={item.imageUrl} />
+              <div>{item.name}</div>
+              <div>{item.price}</div>
+              <button
+                onClick={() => this.removeItems(this.props.user, item, 0)}
+              >
+                Delete
+              </button>
             </div>
-            )
+          );
         })}
       </div>
     );
@@ -63,7 +72,9 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-  getCart: (userId) => dispatch(getCartThunk(userId))
+  getCart: (userId) => dispatch(getCartThunk(userId)),
+  removeItems: (user, item, quantityChange) =>
+    dispatch(removeItems(user, item, quantityChange)),
 });
 
 export default withRouter(connect(mapState, mapDispatch)(Cart));
