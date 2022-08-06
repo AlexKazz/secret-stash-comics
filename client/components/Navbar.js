@@ -9,14 +9,14 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
 
     <nav className="NavBar">
       {isLoggedIn ? (
-        // <div>
+        <div>
         //   {/* The navbar will show these links after you log in */}
-        //   <Link to="/home">Home</Link>
-        //   <a href="#" onClick={handleClick}>
-        //     Logout
-        //   <Link to="/cart">Cart</Link>
-        //   </a>
-        // </div>
+          <Link to="/home">Home</Link>
+          <a href="#" onClick={handleClick}>
+            Logout
+          </a>
+          <Link to="/cart">Cart</Link>
+        </div>
       ) : (
         <div>
           {/* The navbar will show these links before you log in */}
@@ -26,7 +26,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       )}
     </nav>
-    
     <hr />
   </div>
 );
@@ -44,6 +43,7 @@ const mapDispatch = (dispatch) => {
   return {
     handleClick() {
       dispatch(logout());
+      this.props.history.push('/login')
     },
   };
 };
