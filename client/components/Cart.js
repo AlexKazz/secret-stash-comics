@@ -21,9 +21,8 @@ class Cart extends Component {
   }
   //   async componentDidUpdate(prevProps) {
   //   // Typical usage (don't forget to compare props):
-  //   if (this.props.user !== prevProps.user) {
+  //   if (this.props.cart.quantity !== prevProps.cart.quantity) {
   //       await this.props.getCart(this.props.user.id);
-  //       this.setState()
   //       console.log(this.props)
   //   }
   // }
