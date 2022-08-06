@@ -13,9 +13,9 @@ const addToCart = (cart) => ({
   cart,
 });
 
-const _deleteItems = (item) => ({
+const _deleteItems = (cart) => ({
   type: DELETE_ITEMS,
-  item,
+  cart,
 });
 
 export const getCartThunk = (id) => {
