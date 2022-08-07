@@ -1,12 +1,13 @@
+body {
+}
+
 body,
 button {
-  font-family: 'Indie Flower', cursive;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Permanent Marker', cursive;
 }
 
 a {
   text-decoration: none;
-  transition: all 0.3s linear;
 }
 
 a:link,
@@ -16,19 +17,8 @@ a:visited {
 }
 
 a:hover {
-  background: #544a7d; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #ffd452,
-    #544a7d
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #ffd452,
-    #544a7d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffd452;
+  transition: all 0.3s linear;
 }
 
 label {
@@ -52,8 +42,11 @@ form div {
   background-color: #cccccc;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   height: 85px;
   padding: 30px 10px;
+  color: whitesmoke;
+  font-size: 75px;
 }
 nav {
   align-items: center;
