@@ -41,20 +41,24 @@ class Cart extends Component {
 
     return (
       <div>
-        {items.map((item) => {
-          return (
-            <div key={item.id}>
-              <img src={item.imageUrl} />
-              <div>{item.name}</div>
-              <div>{item.price}</div>
-              <button
-                onClick={() => this.removeItems(this.props.user, item, 0)}
-              >
-                Delete
-              </button>
-            </div>
-          );
-        })}
+        {items.length ? (
+          items.map((item) => {
+            return (
+              <div key={item.id}>
+                <img src={item.imageUrl} />
+                <div>{item.name}</div>
+                <div>{item.price}</div>
+                <button
+                  onClick={() => this.removeItems(this.props.user, item, 0)}
+                >
+                  Delete
+                </button>
+              </div>
+            );
+          })
+        ) : (
+          <div>Your cart is empty</div>
+        )}
       </div>
     );
   }

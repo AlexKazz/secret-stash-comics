@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AllItems from './AllItems';
+
 /**
  * COMPONENT
  */
@@ -9,8 +10,17 @@ export const Home = (props) => {
 
   return (
     <div>
-      <h3>Welcome, {username}</h3>
-      <AllItems />
+      {username ? (
+        <div>
+          <h3>Welcome, {username}</h3>
+          <AllItems />
+        </div>
+      ) : (
+        <div>
+          <h1>hi</h1>
+          <AllItems />
+        </div>
+      )}
     </div>
   );
 };

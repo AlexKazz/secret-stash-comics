@@ -17,8 +17,8 @@ a:visited {
 }
 
 a:hover {
-  color: #ffd452;
-  transition: all 0.3s linear;
+  color: #f4bf1e;
+  transition: all 0.1s linear;
 }
 
 label {
@@ -36,6 +36,7 @@ form div {
 }
 
 .StoreName {
+  /* min-width: 500px; */
   background-image: url('Marvel.gif');
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,7 +47,9 @@ form div {
   height: 85px;
   padding: 30px 10px;
   color: whitesmoke;
+  /* font-size: 8vw; */
   font-size: 75px;
+  min-width: 800px;
 }
 nav {
   align-items: center;
@@ -70,15 +73,16 @@ nav {
   height: 20px;
   padding: 30px 10px;
   align-items: baseline;
+  /* font-size: 3.5vw; */
   font-size: 20px;
+  min-width: 800px;
 }
+
 .navText {
   color: whitesmoke;
 }
 .NavList {
   list-style-type: none;
-}
-.NavList li:hover {
 }
 
 .NavList .ListItem {
