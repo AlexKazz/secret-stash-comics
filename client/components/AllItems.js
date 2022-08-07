@@ -22,25 +22,21 @@ export class AllItems extends React.Component {
   render() {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {this.props.items.map(
-          (
-            item // items should be item
-          ) => (
-            <div style={{ padding: '16px' }}>
-              <Item item={item} />
+        {this.props.items.map((item) => (
+          <div key={item.id} style={{ padding: '16px' }}>
+            <Item item={item} />
 
-              <div>
-                <button
-                  type='button'
-                  id='add-product-button'
-                  onClick={() => this.addToCart(this.props.user, item, 1)}
-                >
-                  Add To Cart
-                </button>
-              </div>
+            <div>
+              <button
+                type='button'
+                id='add-product-button'
+                onClick={() => this.addToCart(this.props.user, item, 1)}
+              >
+                Add To Cart
+              </button>
             </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
     );
   }

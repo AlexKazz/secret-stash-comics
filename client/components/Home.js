@@ -30,6 +30,7 @@ export const Home = (props) => {
  */
 const mapState = (state) => {
   return {
+    items: state.items,
     username: state.auth.username,
   };
 };
