@@ -20,7 +20,7 @@ const items = [
     price: 18.99,
   },
   {
-    name: "X-Man",
+    name: "X-Men",
     imageUrl:
       "https://i.annihil.us/u/prod/marvel/i/mg/b/40/62dab23aad018/portrait_uncanny.jpg",
     price: 88.99,
@@ -44,6 +44,54 @@ const items = [
     name: "Chris",
 
     price: 88.99,
+  },
+  {
+    name: "The Power of Iron Man",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/b/b0/62dab23aa338f/portrait_uncanny.jpg",
+    price: 1.99,
+  },
+  {
+    name: "Demon Wars: The Iron Samurai",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/9/10/62dab2848dd12/portrait_uncanny.jpg",
+    price: 6.99,
+  },
+  {
+    name: "Edge of Spider-Verse",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/6/70/62dab283f2981/portrait_uncanny.jpg",
+    price: 5.99,
+  },
+  {
+    name: "X-Men '92",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/b/80/62dab2a780bb2/portrait_uncanny.jpg",
+    price: 9.99,
+  },
+  {
+    name: "Venom",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/a/20/62ed837a78bc9/portrait_uncanny.jpg",
+    price: 3.99,
+  },
+  {
+    name: "Captain America",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/a/30/62ed839d90f4f/portrait_uncanny.jpg",
+    price: 7.99,
+  },
+  {
+    name: "Punisher",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/6/b0/62ed837a6d417/portrait_uncanny.jpg",
+    price: 3.99,
+  },
+  {
+    name: "Black Panther",
+    imageUrl:
+      "https://i.annihil.us/u/prod/marvel/i/mg/3/10/62dab28445415/portrait_uncanny.jpg",
+    price: 38.99,
   },
 ];
 
