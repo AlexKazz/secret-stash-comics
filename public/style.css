@@ -98,21 +98,21 @@ form div {
 }
 
 .StoreName {
-  /* min-width: 500px; */
   background-image: url('Marvel.gif');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #cccccc;
+  background-position: center;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 85px;
-  padding: 30px 10px;
+  padding: 50px 10px;
   color: whitesmoke;
-  /* font-size: 8vw; */
   font-size: 75px;
   min-width: 800px;
 }
+
 nav {
   background-image: url('ironmaneye.png');
   background-repeat: no-repeat;
