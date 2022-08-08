@@ -6,6 +6,59 @@ button {
   font-family: 'Permanent Marker', cursive;
 }
 
+/* CSS */
+button {
+  background-color: #ffe54c;
+  border: 0 solid #e5e7eb;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  margin-bottom: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: 0.75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+button:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0.75rem 3rem;
+    font-size: 1.25rem;
+  }
+}
+
 a {
   text-decoration: none;
 }
@@ -52,21 +105,10 @@ form div {
   min-width: 800px;
 }
 nav {
-  align-items: center;
-  background: #0f0c29; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #24243e,
-    #302b63,
-    #0f0c29
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #24243e,
-    #302b63,
-    #0f0c29
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background-image: url('ironmaneye.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: #f1e4e7;
   display: flex;
   justify-content: space-around;
@@ -92,4 +134,8 @@ nav {
 }
 .NavBar {
   flex-direction: column;
+}
+
+h2 {
+  margin-left: 20px;
 }

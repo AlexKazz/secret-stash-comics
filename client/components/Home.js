@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AllItems from './AllItems';
+import Item from './Item';
+import { fetchItems } from '../store/items';
 
 /**
  * COMPONENT
  */
+fetchItems();
+
 export const Home = (props) => {
   const { username } = props;
 
@@ -12,14 +16,11 @@ export const Home = (props) => {
     <div>
       {username ? (
         <div>
-          <h3>Welcome, {username}</h3>
+          <h2>Welcome, {username}</h2>
           <AllItems />
         </div>
       ) : (
-        <div>
-          <h1>hi</h1>
-          <AllItems />
-        </div>
+        <AllItems />
       )}
     </div>
   );
@@ -35,4 +36,8 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState)(Home);
+const mapDispatch = (dispatch) => ({
+  fetchItems: () => dispatch(fetchItems()),
+});
+
+export default connect(mapState, mapDispatch)(Home);

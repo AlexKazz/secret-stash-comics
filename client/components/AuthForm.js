@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import AllItems from './AllItems';
+// import deadpool from '../public/deadpool.png';
 
 /**
  * COMPONENT
@@ -31,7 +32,8 @@ const AuthForm = (props) => {
           {error && error.response && <div> {error.response.data} </div>}
         </form>
       </div>
-      <AllItems />
+      {/* <AllItems /> */}
+      {/* <img src={deadpool} alt='deadpool' /> */}
     </div>
   );
 };
