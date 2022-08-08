@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
-import { getCartThunk, removeItems } from '../store/cart';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter, Link } from "react-router-dom";
+import { getCartThunk, removeItems, sendItemThunk } from "../store/cart";
+import Checkout from "./Checkout";
 
 // import itemsReducer, { deleteItems } from "../store/items";
 
@@ -11,12 +12,18 @@ class Cart extends Component {
     this.state = {
       cart: {},
       items: [],
+      quantity: 0,
     };
     this.getCart = this.getCart.bind(this);
     this.removeItems = this.removeItems.bind(this);
+    this.checkOut = this.checkOut.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
   }
   async componentDidMount() {
     await this.props.getCart(this.props.user.id);
+    this.setState({
+      items: this.props.cart.items,
+    });
   }
   //   async componentDidUpdate(prevProps) {
   //   // Typical usage (don't forget to compare props):
@@ -25,6 +32,12 @@ class Cart extends Component {
   //       console.log(this.props)
   //   }
   // }
+  checkOut() {
+    this.props.history.push(Checkout);
+  }
+  async changeQuantity(user, item, quantity) {
+    await this.props.updateItemQuantity(user, item, quantity);
+  }
 
   async getCart() {
     console.log(this.props.user);
@@ -32,12 +45,19 @@ class Cart extends Component {
   }
   async removeItems(user, item, quantity) {
     await this.props.removeItems(user, item, quantity);
-    this.props.history.push('/deleted');
+    this.props.history.push("/deleted");
   }
+
   render() {
     let count = 0;
     let cart = this.props.cart || {};
     let items = cart.items || [];
+    console.log("123131231231321", this.state.items);
+    // if(this.props.user.id){
+    //     this.getCart()
+
+    // }
+    // user.orders[0].items[0].cart
 
     return (
       <div>
@@ -53,12 +73,23 @@ class Cart extends Component {
                 >
                   Delete
                 </button>
+                {console.log("item.cart", item.cart)}
+                <div>{item.cart.quantity}</div>
+                <form
+                  onSubmit={(event) => this.changeQuantity(user, item, event)}
+                >
+                  <label>Quantity</label>
+                  <input />
+                </form>
               </div>
             );
           })
         ) : (
           <h2>Your cart is empty</h2>
         )}
+        <div>
+          <button onClick={this.checkOut}>Checkout</button>
+        </div>
       </div>
     );
   }
@@ -73,6 +104,8 @@ const mapDispatch = (dispatch) => ({
   getCart: (userId) => dispatch(getCartThunk(userId)),
   removeItems: (user, item, quantityChange) =>
     dispatch(removeItems(user, item, quantityChange)),
+  updateItemQuantity: (user, item, quantity) =>
+    dispatch(sendItemThunk(user, item, quantity)),
 });
 
 export default withRouter(connect(mapState, mapDispatch)(Cart));

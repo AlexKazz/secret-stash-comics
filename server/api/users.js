@@ -24,7 +24,7 @@ router.get("/:id", async (req, res, next) => {
     const user = await User.findByPk(req.params.id, {
       include: [{ model: Order, include: [Item] }],
     });
-    user.orders[0].quantity = user.orders[0].items.length
+    user.orders[0].quantity = user.orders[0].items.length;
     res.send(user.orders[0]);
   } catch (err) {
     next(err);
@@ -58,7 +58,7 @@ router.put("/:id", async (req, res, next) => {
       } else {
         let newQty = itemInOrder ? cart[0].quantity + quantity : quantity;
         await order.addItem(itemId, { through: { quantity: newQty } });
-        order.quantity = order.items.length
+        order.quantity = order.items.length;
       }
     }
     await increment(order, req.body.item.id, req.body.quantityChange);
