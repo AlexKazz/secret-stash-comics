@@ -52,6 +52,10 @@ button:hover:after {
   left: 2px;
 }
 
+button:active {
+  transform: scale(1.1);
+}
+
 @media (min-width: 768px) {
   button {
     padding: 0.75rem 3rem;
@@ -89,12 +93,19 @@ form div {
 }
 
 .form-image {
-  background-image: url('deadpool.png');
+  background-image: url('marvellogin2.png');
+  background-repeat: no-repeat;
   background-size: cover;
-  width: 50vh;
-  height: 60vh;
-
-  /* width: auto; */
+  background-color: #cccccc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 600px;
+  padding: 30px 10px;
+  color: whitesmoke;
+  /* font-size: 8vw; */
+  font-size: 75px;
+  min-width: 800px;
 }
 
 .StoreName {
