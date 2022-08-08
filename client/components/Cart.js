@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
-import { getCartThunk, removeItems } from "../store/cart";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
+import { getCartThunk, removeItems } from '../store/cart';
 
 // import itemsReducer, { deleteItems } from "../store/items";
 
@@ -16,7 +16,6 @@ class Cart extends Component {
     this.removeItems = this.removeItems.bind(this);
   }
   async componentDidMount() {
-    console.log(this.props.user, "dog");
     await this.props.getCart(this.props.user.id);
   }
   //   async componentDidUpdate(prevProps) {
@@ -33,33 +32,33 @@ class Cart extends Component {
   }
   async removeItems(user, item, quantity) {
     await this.props.removeItems(user, item, quantity);
-    this.props.history.push("/deleted");
+    this.props.history.push('/deleted');
   }
   render() {
     let count = 0;
     let cart = this.props.cart || {};
     let items = cart.items || [];
-    // if(this.props.user.id){
-    //     this.getCart()
 
-    // }
-    console.log(this.props);
     return (
       <div>
-        {items.map((item) => {
-          return (
-            <div key={item.id}>
-              <img src={item.imageUrl} />
-              <div>{item.name}</div>
-              <div>{item.price}</div>
-              <button
-                onClick={() => this.removeItems(this.props.user, item, 0)}
-              >
-                Delete
-              </button>
-            </div>
-          );
-        })}
+        {items.length ? (
+          items.map((item) => {
+            return (
+              <div key={item.id}>
+                <img src={item.imageUrl} />
+                <div>{item.name}</div>
+                <div>{item.price}</div>
+                <button
+                  onClick={() => this.removeItems(this.props.user, item, 0)}
+                >
+                  Delete
+                </button>
+              </div>
+            );
+          })
+        ) : (
+          <h2>Your cart is empty</h2>
+        )}
       </div>
     );
   }

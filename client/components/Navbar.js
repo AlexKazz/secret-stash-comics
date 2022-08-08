@@ -1,34 +1,47 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { logout } from "../store";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div>
-    <h1 className="StoreName">(Store Name)</h1>
+function Navbar({ handleClick, isLoggedIn }) {
+  // hamburger menu for small viewport in progress -Alex
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
-    <nav className="NavBar">
-      {isLoggedIn ? (
-        <div>
-        //   {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/cart">Cart</Link>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login" className="navText">Login</Link>
-          <Link to="/signup" className="navText">Sign Up</Link>
-          <Link to="/cart" className="navText">Cart</Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-);
+  return (
+    <div>
+      <h1 className='StoreName'>Secret Stash Comics</h1>
+
+      <nav className='NavBar'>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+
+            <Link to='/home'>Home</Link>
+            <a href='#' onClick={handleClick}>
+              Logout
+            </a>
+            <Link to='/cart'>Cart</Link>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <Link to='/home'>Home</Link>
+            <Link to='/login' className='navText'>
+              Login
+            </Link>
+            <Link to='/signup' className='navText'>
+              Sign Up
+            </Link>
+            {/* <Link to='/cart' className='navText'>
+            Cart
+          </Link> */}
+          </div>
+        )}
+      </nav>
+      <hr />
+    </div>
+  );
+}
 
 /**
  * CONTAINER
@@ -43,7 +56,7 @@ const mapDispatch = (dispatch) => {
   return {
     handleClick() {
       dispatch(logout());
-      this.props.history.push('/login')
+      this.props.history.push('/login');
     },
   };
 };

@@ -1,16 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AllItems from './AllItems';
+import Item from './Item';
+import { fetchItems } from '../store/items';
+
 /**
  * COMPONENT
  */
+fetchItems();
+
 export const Home = (props) => {
   const { username } = props;
 
   return (
     <div>
-      <h3>Welcome, {username}</h3>
-      <AllItems />
+      {username ? (
+        <div>
+          <h2>Welcome, {username}</h2>
+          <AllItems />
+        </div>
+      ) : (
+        <AllItems />
+      )}
     </div>
   );
 };
@@ -20,8 +31,13 @@ export const Home = (props) => {
  */
 const mapState = (state) => {
   return {
+    items: state.items,
     username: state.auth.username,
   };
 };
 
-export default connect(mapState)(Home);
+const mapDispatch = (dispatch) => ({
+  fetchItems: () => dispatch(fetchItems()),
+});
+
+export default connect(mapState, mapDispatch)(Home);

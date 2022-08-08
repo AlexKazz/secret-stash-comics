@@ -10,37 +10,32 @@ export class AllItems extends React.Component {
     this.addToCart = this.addToCart.bind(this);
     // this.handleDelete = this.handleDelete.bind(this);
   }
-  
+
   async componentDidMount() {
     await this.props.fetchItems();
   }
-  
+
   async addToCart(user, item, quantity) {
-    await this.props.addToCart(user, item, quantity)
+    await this.props.addToCart(user, item, quantity);
   }
 
   render() {
     return (
-      
-      <div style={{display: 'flex', padding: '20px'}}>
-        
-        {this.props.items.map((item) => ( // items should be item
-            <div style={{ padding: '20px'}}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {this.props.items.map((item) => (
+          <div key={item.id} style={{ padding: '16px' }}>
             <Item item={item} />
-            
-           
-              <div>
-                <button
-                  type="button"
-                  id="add-product-button"
-                  onClick={() => this.addToCart(this.props.user, item, 1)}
-                >
-                  Add To Cart
-                </button>
-              </div>
-            
-          </div>
 
+            <div>
+              <button
+                type='button'
+                id='add-product-button'
+                onClick={() => this.addToCart(this.props.user, item, 1)}
+              >
+                Add To Cart
+              </button>
+            </div>
+          </div>
         ))}
       </div>
     );
@@ -55,7 +50,8 @@ const mapState = (reduxState) => ({
 
 const mapDispatch = (dispatch) => ({
   fetchItems: () => dispatch(fetchItems()),
-  addToCart: (user, item, quantity) => dispatch(sendItemThunk(user, item, quantity)),
+  addToCart: (user, item, quantity) =>
+    dispatch(sendItemThunk(user, item, quantity)),
 });
 
 export default connect(mapState, mapDispatch)(AllItems);
