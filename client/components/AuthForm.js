@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import AllItems from './AllItems';
-// import deadpool from '../public/deadpool.png';
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
-
+  // const deadpool = '../public/deadpool.png';
   return (
     <div>
       <div>
@@ -33,7 +32,7 @@ const AuthForm = (props) => {
         </form>
       </div>
       {/* <AllItems /> */}
-      {/* <img src={deadpool} alt='deadpool' /> */}
+      <div className='form-image'></div>
     </div>
   );
 };

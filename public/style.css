@@ -88,6 +88,15 @@ form div {
   display: inline-block;
 }
 
+.form-image {
+  background-image: url('deadpool.png');
+  background-size: cover;
+  width: 50vh;
+  height: 60vh;
+
+  /* width: auto; */
+}
+
 .StoreName {
   /* min-width: 500px; */
   background-image: url('Marvel.gif');
