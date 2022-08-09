@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
   return (
-    <div>
+    <div >
       <img src={item.imageUrl} />
       <div>{item.name}</div>
       <div>{item.price}</div>
@@ -12,3 +12,4 @@ const Item = ({ item }) => {
 };
 
 export default Item;
+// style={{color: '#2F4F4F'}}
