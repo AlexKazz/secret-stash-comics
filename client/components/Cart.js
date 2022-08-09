@@ -10,14 +10,13 @@ class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      cart: {},
-      items: [],
       quantity: 0,
     };
     this.getCart = this.getCart.bind(this);
     this.removeItems = this.removeItems.bind(this);
     this.checkOut = this.checkOut.bind(this);
     this.changeQuantity = this.changeQuantity.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
   }
   async componentDidMount() {
     await this.props.getCart(this.props.user.id);
@@ -36,7 +35,12 @@ class Cart extends Component {
     this.props.history.push(Checkout);
   }
   async changeQuantity(user, item, quantity) {
+    event.preventDefault();
     await this.props.updateItemQuantity(user, item, quantity);
+  }
+  changeHandler(event){
+    event.preventDefault();
+    this.setState({quantity: event.target.value})
   }
 
   async getCart() {
@@ -76,10 +80,11 @@ class Cart extends Component {
                 {console.log("item.cart", item.cart)}
                 <div>{item.cart.quantity}</div>
                 <form
-                  onSubmit={(event) => this.changeQuantity(user, item, event)}
+                  onSubmit={(event) => this.changeQuantity(this.props.user, item, this.state.quantity)}
                 >
                   <label>Quantity</label>
-                  <input />
+                  <input onFocus={(event) => event.target.value=''} onChange={(event) => this.changeHandler(event)} />
+                  <button type="submit">Submit</button>
                 </form>
               </div>
             );
