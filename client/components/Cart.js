@@ -32,7 +32,11 @@ class Cart extends Component {
   //       console.log(this.props)
   //   }
   // }
-  checkOut() {
+  checkOut(event, items) {
+    console.log(items);
+    items.forEach(async (item) => {
+      await this.props.removeItems(this.props.user, item, 0);
+    });
     this.props.history.push(Checkout);
   }
   async changeQuantity(user, item, quantity) {
@@ -52,13 +56,14 @@ class Cart extends Component {
     let count = 0;
     let cart = this.props.cart || {};
     let items = cart.items || [];
-    console.log("123131231231321", this.state.items);
+    // console.log("123131231231321", this.state.items);
     // if(this.props.user.id){
     //     this.getCart()
 
     // }
     // user.orders[0].items[0].cart
-
+    // const navigate = useNavigate();
+    console.log(this.checkOut);
     return (
       <div>
         {items.length ? (
@@ -73,7 +78,7 @@ class Cart extends Component {
                 >
                   Delete
                 </button>
-                {console.log("item.cart", item.cart)}
+                {/* {console.log("item.cart", item.cart)} */}
                 <div>{item.cart.quantity}</div>
                 <form
                   onSubmit={(event) => this.changeQuantity(user, item, event)}
@@ -88,7 +93,11 @@ class Cart extends Component {
           <h2>Your cart is empty</h2>
         )}
         <div>
-          <button onClick={this.checkOut}>Checkout</button>
+          <Link to="/checkout">
+            <button onClick={(event) => this.checkOut(event, items)}>
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     );

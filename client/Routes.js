@@ -19,7 +19,7 @@ class Routes extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     if (this.props.isLoggedIn === undefined) {
       return <div>Loading</div>;
       this.props.loadInitialData();
