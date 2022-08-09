@@ -56,7 +56,8 @@ router.put("/:id", async (req, res, next) => {
         await order.removeItem(itemId);
         order.quantity = order.items.length;
       } else {
-        let newQty = itemInOrder ? cart[0].quantity + quantity : quantity;
+        let numQuantity = Number(quantity)
+        let newQty = itemInOrder ? numQuantity : numQuantity;
         await order.addItem(itemId, { through: { quantity: newQty } });
         order.quantity = order.items.length;
       }

@@ -44,7 +44,7 @@ export const removeItems = (user, item, quantityChange) => {
 
 export const sendItemThunk = (user, item, quantityChange) => {
   return async (dispatch) => {
-    console.log(user, item, quantityChange);
+    console.log('dog',user, item, quantityChange);
     try {
       const token = window.localStorage.getItem("token");
 
