@@ -1,9 +1,10 @@
-import React from 'react';
-import { singleItem } from '../store/singleItem';
-import { connect } from 'react-redux';
-import { updateCartThunk } from '../store/cart';
-function dogs(){
-  return
+import React from "react";
+import { singleItem } from "../store/singleItem";
+import { connect } from "react-redux";
+// import { updateCartThunk } from "../store/cart";
+import { sendItemThunk } from "../store/cart";
+function dogs() {
+  return;
 }
 class SingleItem extends React.Component {
   constructor(props) {
@@ -13,10 +14,9 @@ class SingleItem extends React.Component {
   }
   async componentDidMount() {
     await this.props.singleItem(this.props.match.params.id);
-    
   }
-  async addToCart(item) {
-    
+  async addToCart(user, item, quantity) {
+    await this.props.addToCart(user, item, quantity);
   }
 
   render() {
@@ -24,10 +24,12 @@ class SingleItem extends React.Component {
 
     return (
       <div>
-        <img src={item.imageUrl}/>
+        <img src={item.imageUrl} />
         <div>{item.name}</div>
         <div>{item.price}</div>
-        <button onClick={() => this.addToCart(item)}>Add To Cart</button>
+        <button onClick={() => this.addToCart(this.props.user, item, 1)}>
+          Add To Cart
+        </button>
       </div>
     );
   }
@@ -39,7 +41,8 @@ const mapState = (reduxState) => {
 const mapDispatch = (dispatch) => {
   return {
     singleItem: (id) => dispatch(singleItem(id)),
-    
+    addToCart: (user, item, quantity) =>
+      dispatch(sendItemThunk(user, item, quantity)),
   };
 };
 

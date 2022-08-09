@@ -1,8 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { fetchItems } from '../store/items';
-import { sendItemThunk } from '../store/cart';
-import Item from './Item';
+import React from "react";
+import { connect } from "react-redux";
+import { fetchItems } from "../store/items";
+import { sendItemThunk } from "../store/cart";
+import Item from "./Item";
+import { Link } from "react-router-dom";
 
 export class AllItems extends React.Component {
   constructor(props) {
@@ -21,15 +22,16 @@ export class AllItems extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {this.props.items.map((item) => (
-          <div key={item.id} style={{ padding: '16px' }}>
-            <Item item={item} />
-
+          <div key={item.id} style={{ padding: "16px" }}>
+            <Link to={`/items/${item.id}`}>
+              <Item item={item} />
+            </Link>
             <div>
               <button
-                type='button'
-                id='add-product-button'
+                type="button"
+                id="add-product-button"
                 onClick={() => this.addToCart(this.props.user, item, 1)}
               >
                 Add To Cart
