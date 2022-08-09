@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
 // import { fetchAllUsers } from '../store/user';
 
@@ -10,7 +10,7 @@ class Checkout extends React.Component {
 
   render() {
     return (
-      <div className='checkout'>
+      <div className="checkout">
         <h1>Your order is confirmed! </h1>
         <h2>Happy reading, nerd!</h2>
       </div>
@@ -32,4 +32,4 @@ class Checkout extends React.Component {
 //   };
 // };
 
-export default connect(mapState, mapDispatch)(Checkout);
+export default Checkout;

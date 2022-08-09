@@ -39,7 +39,6 @@ export const removeItems = (user, item, quantityChange) => {
       { headers: { authorization: token } }
     );
     dispatch(_deleteItems(updatedCart));
-    history.push("/");
   };
 };
 
