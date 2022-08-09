@@ -1,5 +1,5 @@
 body {
-  background-image: url("marvelA.jpeg");
+  background-image: url('marvelA.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -7,7 +7,7 @@ body {
 
 body,
 button {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
 }
 
 /* CSS */
@@ -42,7 +42,7 @@ button:focus {
 }
 
 button:after {
-  content: "";
+  content: '';
   position: absolute;
   border: 1px solid #000000;
   bottom: 4px;
@@ -96,24 +96,8 @@ form div {
   display: inline-block;
 }
 
-.form-image {
-  background-image: url("marvellogin2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #cccccc;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 600px;
-  padding: 30px 10px;
-  color: whitesmoke;
-  /* font-size: 8vw; */
-  font-size: 75px;
-  min-width: 800px;
-}
-
 .StoreName {
-  background-image: url("Marvel.gif");
+  background-image: url('Marvel.gif');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #cccccc;
@@ -129,7 +113,7 @@ form div {
 }
 
 nav {
-  background-image: url("ironmaneye.png");
+  background-image: url('ironmaneye.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

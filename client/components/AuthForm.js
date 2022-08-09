@@ -32,7 +32,6 @@ const AuthForm = (props) => {
         </form>
       </div>
       {/* <AllItems /> */}
-      <div className='form-image'></div>
     </div>
   );
 };

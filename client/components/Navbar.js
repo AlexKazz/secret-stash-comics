@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
 function Navbar({ handleClick, isLoggedIn }) {
-  // hamburger menu for small viewport in progress -Alex
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
   return (
     <div>
       <h1 className='StoreName'>Secret Stash Comics</h1>
