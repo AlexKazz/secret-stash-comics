@@ -40,11 +40,11 @@ class Cart extends Component {
     let items = cart.items || [];
 
     return (
-      <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {items.length ? (
           items.map((item) => {
             return (
-              <div key={item.id}>
+              <div key={item.id} style={{ padding: '60px' }}>
                 <img src={item.imageUrl} />
                 <div>{item.name}</div>
                 <div>{item.price}</div>
