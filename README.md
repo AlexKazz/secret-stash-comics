@@ -6,7 +6,7 @@ Do you like comic books?
 <br />
 Do you like e-commerce websites?
 <br />
-What about an e-commerce website that *sells* comic books?
+  What about an e-commerce website that <em>sells</em> comic books?
 Then Secret Stash Comics is the app for you!
 Create a username, and fill your user e-cart up with all the comics you could ever want.
 </p>
