@@ -1,77 +1,60 @@
-# FS-App-Template
+<div>
+<h1 align="center">Secret Stash Comics</h1>
 
-## Setup
+<p align="center">
+Do you like comic books? 
+<br />
+Do you like e-commerce websites?
+<br />
+What about an e-commerce website that *sells* comic books?
+Then Secret Stash Comics is the app for you!
+Create a username, and fill your user e-cart up with all the comics you could ever want.
+</p>
+</div>
 
-To use this as boilerplate, you'll need to take the following steps:
+### Built With
 
-* Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+- [![React.js][react.js]][react-url]
+- [![Javascript][javascript]][javascript-url]
+- [![Node.js][node.js]][node.js-url]
 
-* Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
+## Getting Started
 
-## Customize
+Getting started is *comically* simple! Just follow the steps below to get a local copy up and running.
 
-Now that you've got the code, follow these steps to get acclimated:
+### Prerequisites
 
-* Update project name and description in `package.json`
-* `npm install`
-* Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-* These commands will create both your **development** and **test** databases
+- npm
+  ```sh
+  npm install
+  ```
 
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
+### Installation
 
-* By default, running `npm test` will use your test database, while
-  regular development uses development database
+1. Clone the repo
+   ```sh
+   git clone git@github.com:AlexKazz/secret-stash-comics.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the server
+   ```js
+   npm run start
+   ```
+4. Open the app in your browser
+   ```sh
+    http://localhost:8080/
+   ```
 
-## Start
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
-
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
-
-
-### Heroku
-
-1.  Set up the [Heroku command line tools][heroku-cli]
-2.  `heroku login`
-3.  Add a git remote for heroku:
-
-[heroku-cli]: https://devcenter.heroku.com/articles/heroku-cli
-
-* **If you are creating a new app...**
-
-  1.  `heroku create` or `heroku create your-app-name` if you have a
-      name in mind.
-  2.  `heroku config:set JWT=<your secret here!>` to set a secret for JWT signing
-
-Database Setup
-
-  3.  `heroku addons:create heroku-postgresql:hobby-dev` to add
-      ("provision") a postgres database to your heroku dyno (This creates your production database)
-
-  4.  `heroku config:set SEED=true` to get heroku to sync and seed your database
-
-  5.   note everytime your app restarts, the database tables will be dropped and re-created. To avoid this you can `config:unset SEED`
-
-
-* **If you already have a Heroku app...**
-
-  1.  `heroku git:remote your-app-name` You'll need to be a
-      collaborator on the app.
-
-
-Now, you should be deployed!
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[javascript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[javascript-url]: https://www.javascript.com/
+[node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[node.js-url]: https://nodejs.org/en/
